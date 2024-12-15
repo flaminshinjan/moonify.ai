@@ -1,37 +1,39 @@
-//
-//  appbar.swift
-//  moonify.ai
-//
-//  Created by Shinjan Patra on 15/12/24.
-//
-
 import SwiftUI
 
 struct AppBar: ViewModifier {
     let title: String
-    let profileImage: String // Provide a profile image asset name
+    let profileImage: String
 
     func body(content: Content) -> some View {
         VStack(spacing: 0) {
-            HStack {
-                Text(title)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
-                
+            HStack(spacing: 10) {
+                Image(title)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 40, height: 40)
+                    .padding(.horizontal, 50)
+
                 Spacer()
-                
+
+                // Profile Image
                 Image(profileImage)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
-                    .shadow(radius: 5)
             }
-            .padding()
-            .background(Color.white.shadow(radius: 3))
-            
+            .padding(.horizontal, 20) // Add 20-point padding to the left and right
+            .padding(.vertical, 10) // Optional: Add vertical padding
+
             content
         }
     }
 }
+
+extension View {
+    func appBar(title: String, profileImage: String) -> some View {
+        self.modifier(AppBar(title: title, profileImage: profileImage))
+    }
+}
+
+                    

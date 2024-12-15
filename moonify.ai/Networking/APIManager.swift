@@ -10,7 +10,6 @@ import Foundation
 class APIManager {
     static let shared = APIManager()
     
- 
     
     func fetchMoonData(lat: Double, lon: Double, completion: @escaping (Result<MoonResponse, Error>) -> Void) {
         guard let url = URL(string: "\(baseURL)/advanced?lat=\(lat)&lon=\(lon)") else {
