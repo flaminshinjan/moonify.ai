@@ -11,7 +11,11 @@ import SwiftUI
 struct moonify_aiApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MoonView()
         }
     }
+}
+
+#Preview {
+    MoonView()
 }
