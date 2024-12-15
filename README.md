@@ -32,10 +32,10 @@ Moonify.ai is a beautifully designed iOS application that provides real-time inf
 ## **Screenshots**
 ### Splash Screen
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/8c5e7544-422b-40fb-96a9-1e3c3f3718f0" alt="Splash Screen" width="200">
-  <img src="https://github.com/user-attachments/assets/4d44895b-9641-4d9d-8bff-2e1fa6bbb566" alt="Moon Details" width="200">
-  <img src="https://github.com/user-attachments/assets/b1890fa2-eb27-4d4f-94d7-a51145bcfadc" alt="Lunar Calendar" width="200">
-  <img src="https://github.com/user-attachments/assets/cc0383c7-0341-45e1-b490-2dca742a7ed2" alt="Moonify Buddy" width="200">
+  <img src="https://github.com/user-attachments/assets/8c5e7544-422b-40fb-96a9-1e3c3f3718f0" alt="Splash Screen" width="175">
+  <img src="https://github.com/user-attachments/assets/4d44895b-9641-4d9d-8bff-2e1fa6bbb566" alt="Moon Details" width="175">
+  <img src="https://github.com/user-attachments/assets/b1890fa2-eb27-4d4f-94d7-a51145bcfadc" alt="Lunar Calendar" width="175">
+  <img src="https://github.com/user-attachments/assets/cc0383c7-0341-45e1-b490-2dca742a7ed2" alt="Moonify Buddy" width="175">
 </p>
 
 ---
