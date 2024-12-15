@@ -90,7 +90,7 @@ Moonify.ai is a beautifully designed iOS application that provides real-time inf
 ---
 
 ## **Contributors**
-- **Shinjan Patra** - iOS Developer & Designer
+- **Shinjan Patra** - iOS Developer & Designer & AI Guy lol
 
 ---
 
