@@ -2,48 +2,49 @@ import SwiftUI
 
 struct MoonView: View {
     @StateObject private var viewModel = MoonViewModel()
+    @State private var selectedTab: Tab = .moon
     
     var body: some View {
         NavigationView {
             ZStack {
-                Color(.systemBlue).ignoresSafeArea()
-                if let moonData = viewModel.moonData {
-                    VStack(spacing: 20) {
-                        Text(moonData.emoji)
-                            .font(.system(size: 80))
-                        
-                        Text(moonData.phase_name)
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(.white)
-                        
-                        Text("Illumination: \(moonData.illumination)")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                        
-                        Text("Moonrise: \(moonData.moonrise)")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                        
-                        Text("Moonset: \(moonData.moonset)")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                        
-                        Spacer()
+                Color.white
+                VStack {
+                    if selectedTab == .moon {
+                        if let moonData = viewModel.moonData {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 20) {
+                                    MoonDataCard(moonData: moonData)
+                                        .frame(width: 300)
+                                        .padding(.horizontal)
+                                }
+                                .padding(.top, 20)
+                            }
+                        } else if let errorMessage = viewModel.errorMessage {
+                            Text(errorMessage)
+                                .foregroundColor(.red)
+                                .multilineTextAlignment(.center)
+                                .padding()
+                        } else {
+                            ProgressView("Fetching Moon Data...")
+                                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                        }
+                    } else if selectedTab == .chat {
+                        ChatTabView()
                     }
-                } else if let errorMessage = viewModel.errorMessage {
-                    Text(errorMessage)
-                        .foregroundColor(.red)
-                        .multilineTextAlignment(.center)
-                } else {
-                    ProgressView("Fetching Moon Data...")
-                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    
+                    Spacer()
+                    
+                    FloatingNavBar(selectedTab: $selectedTab)
+                }
+                .onAppear {
+                    viewModel.fetchCurrentLocation()
                 }
             }
-            .navigationTitle("Moon Phase")
-            .onAppear {
-                viewModel.fetchCurrentLocation()
-            }
+            .modifier(AppBar(title: "moonify.ai", profileImage: "profile_placeholder"))
         }
     }
+}
+
+enum Tab {
+    case moon, chat
 }
